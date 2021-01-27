@@ -6,6 +6,7 @@ const Question1 = () => {
     <Layout>
       <h1>Question 1</h1>
       <Link to="/">Go to Home</Link>
+      <p>Go to file <b>./src/components/Layout.js</b></p>
     </Layout>
   )
 }
