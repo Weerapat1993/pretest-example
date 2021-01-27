@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { breakpoint } from 'styled-components-breakpoint'
 
 const columnCalculate = (grid) => {
   const columnTotal = 12;
@@ -23,5 +24,11 @@ export const Row = styled.div`
 export const Col = styled.div`
   display: flex;
   flex-direction: column;
-  ${props => columnCalculate(props.xs)}
+  ${breakpoint('xs')`
+   ${props => columnCalculate(props.xs)}
+  `}
+  ${breakpoint('sm')`
+   ${props => columnCalculate(props.sm)}
+  `}
+  text-align: ${props => props.align || 'left'};
 `

@@ -1,6 +1,12 @@
+
 import { useEffect } from 'react';
+import styled from 'styled-components';
 import { useImmer } from 'use-immer'
 import { Col, Row } from "./Grid";
+
+const Input = styled.input`
+  width: 90%;
+`
 
 const options = ['isPrime', 'isFibanacci'];
 const fibanacciMax = 50;
@@ -62,9 +68,9 @@ const Layout = ({ children }) => {
     : isFibanacci(state.fibanacciNums, state.num);
   return (
     <Row>
-      <Col xs="200px">
+      <Col xs="100px" sm="200px">
         <form onSubmit={handleSubmitColOne}>
-          <input type="number" name="num" onChange={handleNumber} value={state.num} />
+          <Input type="number" name="num" onChange={handleNumber} value={state.num} />
         </form>
       </Col>
       <Col xs="auto">
@@ -75,8 +81,8 @@ const Layout = ({ children }) => {
         </select>
         {children}
       </Col>
-      <Col xs="300px">
-        {isCorrect.toString()}
+      <Col align="center" xs="300px">
+        {state.type} = {isCorrect.toString()}
       </Col>
     </Row>
   )
